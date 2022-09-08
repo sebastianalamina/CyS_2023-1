@@ -24,7 +24,7 @@ public class Interfaz extends Object {
 		sc = new Scanner(System.in);
 
 		// Redirigimos al menú principal.
-		menu_principal();
+		menuPrincipal();
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class Interfaz extends Object {
 	 * tiene el usuario dentro del programa, y redirige al
 	 * programa según el "input" que introduzca.
 	 */
-	private void menu_principal() {
+	private void menuPrincipal() {
 
 		// Imprimimos el menú principal.
 		System.out.println("--------------------- ¡Hola! ---------------------");
@@ -51,15 +51,15 @@ public class Interfaz extends Object {
 		System.out.println("--------------------------------------------------");
 
 		// Obtenemos el "input" del usuario, y redirigimos.
-		String x = get_opcion("Escoge una opción:");
+		String x = getOpcion("Escoge una opción:");
 		if ( !x.equals("3") ) {
 			if ( x.equals("1") )
 				vigenère();
 			else if ( x.equals("2") )
 				hill();
 			else if (x != "3") {
-				get_opcion("Introduce una opción válida.");
-				menu_principal();
+				getOpcion("Introduce una opción válida.");
+				menuPrincipal();
 			}
 		}
 	}
@@ -71,7 +71,7 @@ public class Interfaz extends Object {
 	 * @return Cadena con el "input" del usuario. Si no
 	 * introduce nada, se devuelve la cadena vacía.
 	 */
-	private String get_opcion(String msj_para_usuario) {
+	private String getOpcion(String msj_para_usuario) {
 
 		// Imprimimos el "prompt".
 		System.out.println(msj_para_usuario);
@@ -92,10 +92,10 @@ public class Interfaz extends Object {
 
 
 		// Simulamos una interacción antes de continuar.
-		get_opcion("Presiona 'Enter' para continuar.");
+		getOpcion("Presiona 'Enter' para continuar.");
 
 		// Redigirimos al menú principal.
-		menu_principal();
+		menuPrincipal();
 	}
 
 	/**
@@ -106,10 +106,10 @@ public class Interfaz extends Object {
 		
 
 		// Simulamos una interacción antes de continuar.
-		get_opcion("Presiona 'Enter' para continuar.");
+		getOpcion("Presiona 'Enter' para continuar.");
 
 		// Redigirimos al menú principal.
-		menu_principal();
+		menuPrincipal();
 	}
 
 }
