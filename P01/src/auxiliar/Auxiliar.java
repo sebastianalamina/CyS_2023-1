@@ -1,19 +1,19 @@
-package aux;
+package auxiliar;
 
 /**
- * Clase Aux.
+ * Clase Auxiliar.
  * Auxilia en el manejo de cadenas y arreglos.
  * Simula una clase estática, por lo que todos
  * sus métodos han de ser estáticos (similar al
  * funcionamiento de la clase Math).
  */
-public final class Aux extends Object {
+public final class Auxiliar extends Object {
 
 	/**
-	 * Constructor de la clase Aux.
+	 * Constructor de la clase Auxiliar.
 	 * Es privado para evitar instanciación, y no hace nada.
 	 */
-	private Aux() {}
+	private Auxiliar() {}
 
 	/**
 	 * Toma una cadena y la normaliza. Es decir, le quita signos
