@@ -68,6 +68,7 @@ public final class Auxiliar extends Object {
 	 * Calcula y devuelve el determinante de una matriz.
 	 * @param a Arreglo del cual se desea calcular el determinante.
 	 * @return Determinante de la matriz.
+	 * @throws Exception Error si la matriz no es 2x2 o 3x3.
 	 */
 	public static int determinante(int[][] a) throws Exception {
 
@@ -90,6 +91,82 @@ public final class Auxiliar extends Object {
 
 		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
 		throw new Exception("Sólo se está trabajando con matrices de dimensiones 2 y 3.");
+	}
+
+	/**
+	 * Calcula y devuelve la matriz inversa de la matriz dada.
+	 * @param a Matriz cuya inversa desea calcularse.
+	 * @return Inversa de la matriz dada.
+	 * @throws Exception Error si la matriz no tiene inversa.
+	 */
+	public static int[][] inversa(int[][] a) throws Exception {
+
+		// Primero, calculamos la inversa de la matriz.
+		int det = determinante(a);
+
+		// Si el determinante es cero, esta matriz no tiene inversa.
+		if (det == 0)
+			throw new Exception("Esta matriz no tiene inversa.");
+
+		// La inversa de una matriz es la transpuesta de su adjunta...
+		int[][] inversa = transpuesta(adjunta(a));
+
+		// entre su determinante.
+		for (int x = 0; x < inversa.length; x++)
+			for (int y = 0; y < inversa[0].length; y++)
+				inversa[x][y] /= det;
+
+		// Devolvemos la matriz inversa.
+		return inversa;
+	}
+
+	/**
+	 * Calcula y devuelve la matriz transpuesta de la matriz dada.
+	 * @param a Matriz cuya transpuesta desea calcularse.
+	 * @return Transpuesta de la matriz dada.
+	 */
+	public static int[][] transpuesta(int[][] a){
+
+		// Si la matriz original es de mxn,
+		// la transpuesta es de nxm
+		int m = a.length;
+		int n = a[0].length;
+		int[][] transpuesta = new int[n][m];
+
+		// Calculamos la transpuesta.
+		for(int x = 0; x < n; x++)
+			for(int y = 0; y < m; y++)
+				transpuesta[x][y] = a[y][x];
+
+		// La devolvemos.
+	    return transpuesta;
+	}
+
+
+	/**
+	 * Calcula y devuelve la matriz adjunta de la matriz dada.
+	 * @param a Matriz cuya matriz adjunta desea calcularse.
+	 * @return Matriz adjunta de la matriz dada.
+	 */
+	private static int[][] adjunta(int[][] a) throws Exception {
+
+		// Si la matriz es de 2x2...
+		if (a.length == 2) {
+			assert a[0].length == 2;
+
+			// uwu
+		}
+
+		// Si la matriz es de 3x3...
+		if (a.length == 3) {
+			assert a[0].length == 3;
+
+			// uwu
+		}
+
+		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
+		throw new Exception("Sólo se está trabajando con matrices de dimensiones 2 y 3.");
+
 	}
 
 }
