@@ -1,6 +1,14 @@
 # Proyecto 1 - Criptosistemas Vigenère y Hill :heavy_check_mark:
 
-Consultar `docs/Especificación.pdf` para más información sobre el proyecto.
+Consultar el archivo `Especificación.pdf` para más información sobre el proyecto.
+
+## Autores :busts_in_silhouette:
+
+- [sebastianalamina](https://github.com/sebastianalamina) (Sebastián Alamina Ramírez)
+
+- [Carlos-Desiderio](https://github.com/Carlos-Desiderio) (Carlos Alberto Desiderio Castillo)
+
+- [caams](https://github.com/caams) (Camila Alexandra Cruz Miranda)
 
 ## Ejecución :gear:
 
@@ -11,14 +19,6 @@ Desde esta carpeta, y mediante alguna terminal con acceso a un compilador de Jav
 - Si se desea sólo compilar el programa, ejecutar `ant compile`. El resultado se encontrará en `src/build-ant`.
 - Si se desea la documentación del programa, ejecutar `ant docs`. El resultado se encontrará en `src/docs-ant`.
 - Si se desea limpiar la compilación y/o la documentación del programa, ejecutar `ant clean`.
-
-### Ejecución con Maven :feather:
-
-uwu
-
-### Ejecución con Visual Studio Code :large_blue_diamond:
-
-uwu
 
 ### Ejecución con `javac` y `java` :coffee:
 
