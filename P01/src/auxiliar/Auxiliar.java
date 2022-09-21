@@ -9,6 +9,7 @@ package auxiliar;
  */
 public final class Auxiliar extends Object {
 
+
 	/**
 	 * Constructor de la clase Auxiliar.
 	 * Es privado para evitar instanciación, y no hace nada.
@@ -157,19 +158,66 @@ public final class Auxiliar extends Object {
 		if (a.length == 2) {
 			assert a[0].length == 2;
 
-			// uwu
+			adjuntaAux(a, 2);
 		}
 
 		// Si la matriz es de 3x3...
 		if (a.length == 3) {
 			assert a[0].length == 3;
 
-			// uwu
+			adjuntaAux(a, 3);
 		}
 
 		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
 		throw new Exception("Sólo se está trabajando con matrices de dimensiones 2 y 3.");
 
+	}
+
+	// Función auxiliar para sacar la adjunta de A[N][N] en adj[N][N].
+	static void adjuntaAux(int A[][], int dim) {
+
+		// temp son los cofactores de A[][]
+
+		int [][]temp = new int[dim][dim];
+	
+		for (int i = 0; i < dim; i++)
+		{
+			for (int j = 0; j < dim; j++)
+			{
+				// Sacamos los cofactores de A[i][j]
+				cofactor(A, temp, i, j, dim);
+	
+				// Intercambiamos las filas y columnas para conseguir la
+				// transpuesta de la matriz de cofactores = la matriz adjunta
+				//adj[j][i] = (sign)*determinante(temp);
+
+				transpuesta(temp);
+			}
+		}
+	}
+
+	// Función de los cofactores de A[p][q] en temp[][]. n es la
+	// dimension de A[][]
+	static void cofactor(int A[][], int temp[][], int p, int q, int n) {
+		int i = 0, j = 0;
+	
+		// Bucle para cada elemento de la matriz
+		for (int row = 0; row < n; row++) {
+			for (int col = 0; col < n; col++) {
+				// Copiamos en una matriz temporal solo aquellos elementos
+				// que no están en sus filas y columnas
+				if (row != p && col != q) {
+					temp[i][j++] = A[row][col];
+	
+					// La fila se llena así que aumentamos el índice de la fila y 
+					// resetamos el índice de las columnas
+					if (j == n - 1)	{
+						j = 0;
+						i++;
+					}
+				}
+			}
+		}
 	}
 
 }
