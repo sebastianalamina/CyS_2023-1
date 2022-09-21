@@ -8,6 +8,6 @@
 
 - [sebastianalamina](https://github.com/sebastianalamina) (Sebastián Alamina Ramírez)
 
-- [usuario_de_git](https://github.com/usuario_de_git) (nombre completo)
+- [caams](https://github.com/caams) (Camila Alexandra Cruz Miranda)
 
 - [usuario_de_git](https://github.com/usuario_de_git) (nombre completo)
