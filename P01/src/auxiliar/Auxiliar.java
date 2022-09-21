@@ -61,7 +61,10 @@ public final class Auxiliar extends Object {
 	 */
 	public static int[][] multiplicarArreglos(int[][] a1, int[][] a2) {
 
-		return new int[0][0];
+		Matrices m = new Matrices();
+
+		return m.multiplicaMatrices(a1, a2);
+		
 	}
 
 	/**
