@@ -144,10 +144,25 @@ public class Interfaz extends Object {
 		obtenciónTextoClave(x);
 
 		// Imprimimos el resultado.
-		if (x.equals("1"))
-			System.out.println(Hill.encripta(texto, clave));
-		else if (x.equals("2"))
-			System.out.println(Hill.desencripta(texto, clave));
+		if (x.equals("1")) {
+			try {
+				System.out.println(Hill.encripta(texto, clave));	
+			} catch (Exception e) {
+				System.out.println("--------------------- ERROR ----------------------");
+				System.out.println(e);
+				menuPrincipal();
+				return;
+			}
+		} else if (x.equals("2")) {
+			try {
+				System.out.println(Hill.desencripta(texto, clave));	
+			} catch (Exception e) {
+				System.out.println("--------------------- ERROR ----------------------");
+				System.out.println(e);
+				menuPrincipal();
+				return;
+			}
+		}
 
 		// Simulamos una interacción antes de continuar.
 		getOpcion("Presiona 'Enter' para continuar.");
