@@ -24,5 +24,5 @@ uwu
 
 *Dentro* de la carpeta `src`, compilar y ejecutar el programa con `javac` y `java`. Se recomienda la siguiente serie de comandos:
 1. Compilar con `javac -d ./classes *.java`. El resultado se encontrará en `src/classes`.
-2. Ejecutar con `java -cp ./classes Main`.
+2. Ejecutar con `java -ea -cp ./classes Main`.
 3. (Opcional) Limpiar la compilación con `rm -r classes`.
