@@ -11,6 +11,8 @@ import hill.*;
 public class Interfaz extends Object {
 
 	private Scanner sc;	/* Scanner para leer input. */
+	private String texto; /* Texto a encriptar o desencriptar. */
+	private String clave; /* Clave para encriptar o desenctriptar. */
 
 	/**
 	 * Constructor de la clase Interfaz.
@@ -85,11 +87,32 @@ public class Interfaz extends Object {
 	}
 
 	/**
-	 * uwu
+	 * Ejecución de Vigenère.
 	 */
 	private void vigenère() {
 
+		// Imprimimos para saber si se desea encriptar o desencriptar.
+		System.out.println("-------------------- VIGENÈRE --------------------");
+		System.out.println("1) Encriptar.");
+		System.out.println("2) Desencriptar.");
+		System.out.println("--------------------------------------------------");
 
+		// Obtenemos la opción deseada.
+		String x = getOpcion("Escoge una opción:");
+		if ( !(x.equals("1")||x.equals("2")) ) {
+			getOpcion("Introduce una opción válida.");
+			vigenère();
+			return;
+		}
+
+		// Obtenemos el texto a (des)encriptar y la clave para (des)encriptar.
+		obtenciónTextoClave(x);
+
+		// Imprimimos el resultado.
+		if (x.equals("1"))
+			System.out.println(Vigenère.encripta(texto, clave));
+		else if (x.equals("2"))
+			System.out.println(Vigenère.decifra(texto, clave));
 
 		// Simulamos una interacción antes de continuar.
 		getOpcion("Presiona 'Enter' para continuar.");
@@ -99,17 +122,70 @@ public class Interfaz extends Object {
 	}
 
 	/**
-	 * uwu
+	 * Ejecución de Hill
 	 */
 	private void hill() {
 
-		
+		// Imprimimos para saber si se desea encriptar o desencriptar.
+		System.out.println("---------------------- HILL ----------------------");
+		System.out.println("1) Encriptar.");
+		System.out.println("2) Desencriptar.");
+		System.out.println("--------------------------------------------------");
+
+		// Obtenemos la opción deseada.
+		String x = getOpcion("Escoge una opción:");
+		if ( !(x.equals("1")||x.equals("2")) ) {
+			getOpcion("Introduce una opción válida.");
+			hill();
+			return;
+		}
+
+		// Obtenemos el texto a (des)encriptar y la clave para (des)encriptar.
+		obtenciónTextoClave(x);
+
+		// Imprimimos el resultado.
+		if (x.equals("1"))
+			System.out.println(Hill.encripta(texto, clave));
+		else if (x.equals("2"))
+			System.out.println(Hill.desencripta(texto, clave));
 
 		// Simulamos una interacción antes de continuar.
 		getOpcion("Presiona 'Enter' para continuar.");
 
 		// Redigirimos al menú principal.
 		menuPrincipal();
+	}
+
+	/**
+	 * Almacena, en las variables globales, el texto para encriptar
+	 * o desencriptar, y la clave con la cual hacerlo.
+	 * @param opcion Cadena "1" para el encriptado. Cadena "2" para
+	 * el desencriptado.
+	 */
+	private void obtenciónTextoClave(String opcion) {
+
+		// Obteniendo el texto.
+		System.out.println("--------------------------------------------------");
+		System.out.print("Introduce el texto a ");
+		if (opcion.equals("2"))
+			System.out.print("des");
+		System.out.println("encriptar...");
+		texto = getOpcion("");
+
+		// Obteniendo la clave.
+		System.out.println("--------------------------------------------------");
+		System.out.print("Ahora, introduce la clave para ");
+		if (opcion.equals("2"))
+			System.out.print("des");
+		System.out.println("encriptar...");
+		clave = getOpcion("");
+
+		// Imprimiendo parte del resultado.
+		System.out.println("--------------------------------------------------");
+		System.out.print("El texto ");
+		if (opcion.equals("2"))
+			System.out.print("des");
+		System.out.println("encriptado es el siguiente:");
 	}
 
 }
