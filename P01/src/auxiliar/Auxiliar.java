@@ -9,7 +9,6 @@ package auxiliar;
  */
 public final class Auxiliar extends Object {
 
-	static final int N = 4;
 
 	/**
 	 * Constructor de la clase Auxiliar.
@@ -181,12 +180,12 @@ public final class Auxiliar extends Object {
 
 		int [][]temp = new int[dim][dim];
 	
-		for (int i = 0; i < N; i++)
+		for (int i = 0; i < dim; i++)
 		{
-			for (int j = 0; j < N; j++)
+			for (int j = 0; j < dim; j++)
 			{
 				// Sacamos los cofactores de A[i][j]
-				cofactor(A, temp, i, j, N);
+				cofactor(A, temp, i, j, dim);
 	
 				// Intercambiamos las filas y columnas para conseguir la
 				// transpuesta de la matriz de cofactores = la matriz adjunta
