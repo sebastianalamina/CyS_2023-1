@@ -24,7 +24,32 @@ public final class Auxiliar extends Object {
 	 */
 	public static String normalizarTexto(String texto) {
 
-		return "";
+		// Copiamos el texto a normalizar.
+		String s = texto;
+
+		// Acentos.
+		s = s.replaceAll("Á","A");
+		s = s.replaceAll("É","E");
+		s = s.replaceAll("Í","I");
+		s = s.replaceAll("Ó","O");
+		s = s.replaceAll("Ú","I");
+		s = s.replaceAll("á","a");
+		s = s.replaceAll("é","e");
+		s = s.replaceAll("í","i");
+		s = s.replaceAll("ó","o");
+		s = s.replaceAll("ú","u");
+
+		// Espacios.
+		s = s.replaceAll("\\s","");
+
+		// Signos de puntuación.
+		s = s.replaceAll("\\W","");
+
+		// Minúsculas a mayúsculas.
+		s = s.toUpperCase();
+
+		// Devolvemos el texto ya normalizado.
+		return s;
 	}
 
 	/**
@@ -36,7 +61,7 @@ public final class Auxiliar extends Object {
 	 */
 	public static int[][] multiplicarArreglos(int[][] a1, int[][] a2) {
 
-		return new int[0];
+		return new int[0][0];
 	}
 
 	/**
