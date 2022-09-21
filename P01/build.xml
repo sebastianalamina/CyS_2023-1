@@ -13,6 +13,7 @@
 
   <target name="run" depends="compile"> <!--Este "depends" ejecuta "ant compile" antes de "ant run"-->
     <java classname="Main" fork="true">
+      <jvmarg value="-ea" />
       <classpath>
         <pathelement path="${build-dir}" />
       </classpath>
