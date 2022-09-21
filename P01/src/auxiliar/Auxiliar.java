@@ -34,9 +34,37 @@ public final class Auxiliar extends Object {
 	 * @return La matriz que resulta de multiplicar los
 	 * arreglos de los parámetros.
 	 */
-	public static int[] multiplicarArreglos(int[] a1, int[] a2) {
+	public static int[][] multiplicarArreglos(int[][] a1, int[][] a2) {
 
 		return new int[0];
+	}
+
+	/**
+	 * Calcula y devuelve el determinante de una matriz.
+	 * @param a Arreglo del cual se desea calcular el determinante.
+	 * @return Determinante de la matriz.
+	 */
+	public static int determinante(int[][] a) throws Exception {
+
+		// Si la matriz es de 2x2...
+		if (a.length == 2) {
+			assert a[0].length == 2;
+			return (a[0][0]*a[1][1]) - (a[0][1]*a[1][0]);
+		}
+
+		// Si la matriz es de 3x3...
+		if (a.length == 3) {
+			assert a[0].length == 3;
+			return (a[0][0]*a[1][1]*a[2][2])
+			+ a[0][1]*a[1][2]*a[2][0]
+			+ a[0][2]*a[1][0]*a[2][1]
+			- a[0][2]*a[1][1]*a[2][0]
+			- a[0][0]*a[1][2]*a[2][1]
+			- a[0][1]*a[1][0]*a[2][2];
+		}
+
+		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
+		throw new Exception("Sólo se está trabajando con matrices de dimensiones 2 y 3.");
 	}
 
 }
