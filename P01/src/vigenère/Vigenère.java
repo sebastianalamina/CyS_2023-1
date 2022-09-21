@@ -123,6 +123,10 @@ public class Vigenère{
     	return secret;
     }
 
+    /** Método que desencripta usando Vigenere
+    * @param msg el mensaje a descifrar.
+    * @param key la palabra clave para descifrar el mensaje. 
+    */
     public static String decifra(String secret, String key){
     	String msg = "";
 
@@ -151,17 +155,8 @@ public class Vigenère{
     		}
     	}
     	return msg;
-    }                           
-
-    public static void main(String[] args) {
-    	// Pruebas:
-    	String s = " PJPÑ PBTÑ LB OVÑB";
-    	String k = "AB CÑ1";
-    	String msg = decifra(s,k);
-    	// 
-        System.out.println(msg);
-    	System.out.println(encripta("1 PiÑa para la niña",k));   
     }
+    
 }
 
  // ( @ _ @ )
