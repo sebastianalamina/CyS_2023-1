@@ -158,14 +158,14 @@ public final class Auxiliar extends Object {
 		if (a.length == 2) {
 			assert a[0].length == 2;
 
-			return adjuntaAux(a, 2);
+			adjuntaAux(a, 2);
 		}
 
 		// Si la matriz es de 3x3...
 		if (a.length == 3) {
 			assert a[0].length == 3;
 
-			return adjuntaAux(a, 3);
+			adjuntaAux(a, 3);
 		}
 
 		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
@@ -174,7 +174,7 @@ public final class Auxiliar extends Object {
 	}
 
 	// Función auxiliar para sacar la adjunta de A[N][N] en adj[N][N].
-	static void adjuntaAux(int A[][], int dim) {
+	static int[][] adjuntaAux(int A[][], int dim) {
 
 		// temp son los cofactores de A[][]
 
@@ -194,11 +194,12 @@ public final class Auxiliar extends Object {
 				transpuesta(temp);
 			}
 		}
+		return temp;
 	}
 
 	// Función de los cofactores de A[p][q] en temp[][]. n es la
 	// dimension de A[][]
-	static void cofactor(int A[][], int temp[][], int p, int q, int n) {
+	static int[][] cofactor(int A[][], int temp[][], int p, int q, int n) {
 		int i = 0, j = 0;
 	
 		// Bucle para cada elemento de la matriz
@@ -218,6 +219,7 @@ public final class Auxiliar extends Object {
 				}
 			}
 		}
+		return temp;
 	}
 
 }
