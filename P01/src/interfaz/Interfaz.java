@@ -43,9 +43,9 @@ public class Interfaz extends Object {
 		System.out.println("--------- Cripsosistemas Vigenère y Hill ---------");
 		System.out.println("--------------------------------------------------");
 		System.out.println("------------------ Integrantes -------------------");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
+		System.out.println("Sebastián Alamina Ramírez");
+		System.out.println("Carlos Alberto Desiderio Castillo");
+		System.out.println("Camila Alexandra Cruz Miranda");
 		System.out.println("--------------------------------------------------");
 		System.out.println("1) Ejecutar Vigenère.");
 		System.out.println("2) Ejecutar Hill.");
