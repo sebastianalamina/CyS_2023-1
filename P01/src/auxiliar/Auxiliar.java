@@ -1,4 +1,5 @@
 package auxiliar;
+import java.util.Arrays;
 
 /**
  * Clase Auxiliar.
@@ -43,11 +44,12 @@ public final class Auxiliar extends Object {
 		// Espacios.
 		s = s.replaceAll("\\s","");
 
-		// Signos de puntuación.
-		s = s.replaceAll("\\W","");
-
 		// Minúsculas a mayúsculas.
 		s = s.toUpperCase();
+
+		// Signos de puntuación.
+		// s = s.replaceAll("\\W","");
+		// Esta función elimina a las Ñ's.
 
 		// Devolvemos el texto ya normalizado.
 		return s;
@@ -76,6 +78,12 @@ public final class Auxiliar extends Object {
 	 */
 	public static int determinante(int[][] a) throws Exception {
 
+		// Si la matriz es de 1x1...
+		if (a.length == 1) {
+			assert a[0].length == 1;
+			return a[0][0];
+		}
+
 		// Si la matriz es de 2x2...
 		if (a.length == 2) {
 			assert a[0].length == 2;
@@ -94,7 +102,7 @@ public final class Auxiliar extends Object {
 		}
 
 		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
-		throw new Exception("Sólo se está trabajando con matrices de dimensiones 2 y 3.");
+		throw new Exception("Para el cálculo del determinante, sólo se está trabajando con matrices de dimensiones 1, 2 y 3.");
 	}
 
 	/**
@@ -106,7 +114,7 @@ public final class Auxiliar extends Object {
 	public static int[][] inversa(int[][] a) throws Exception {
 
 		// Primero, calculamos la inversa de la matriz.
-		int det = determinante(a);
+		int det = determinante(a);// % 27;
 
 		// Si el determinante es cero, esta matriz no tiene inversa.
 		if (det == 0)
@@ -118,7 +126,7 @@ public final class Auxiliar extends Object {
 		// entre su determinante.
 		for (int x = 0; x < inversa.length; x++)
 			for (int y = 0; y < inversa[0].length; y++)
-				inversa[x][y] /= det;
+				inversa[x][y] /= det; // AQUÍ SE HACE CERO SI EL DETERMINANTE ES MÁS GRANDE QUE EL NUMERADOR.
 
 		// Devolvemos la matriz inversa.
 		return inversa;
@@ -158,68 +166,66 @@ public final class Auxiliar extends Object {
 		if (a.length == 2) {
 			assert a[0].length == 2;
 
-			adjuntaAux(a, 2);
+			return adjuntaAux(a, 2);
 		}
 
 		// Si la matriz es de 3x3...
 		if (a.length == 3) {
 			assert a[0].length == 3;
 
-			adjuntaAux(a, 3);
+			return adjuntaAux(a, 3);
 		}
 
 		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
-		throw new Exception("Sólo se está trabajando con matrices de dimensiones 2 y 3.");
+		throw new Exception("Para el cálculo de la matriz adjunta, sólo se está trabajando con matrices de dimensiones 2 y 3.");
 
 	}
 
-	// Función auxiliar para sacar la adjunta de A[N][N] en adj[N][N].
-	static int[][] adjuntaAux(int A[][], int dim) {
+	// Función auxiliar para calcular la matriz adjunta.
+	private static int[][] adjuntaAux(int[][] a, int dim) throws Exception {
 
-		// temp son los cofactores de A[][]
+		// Creamos la matriz adjunta.
+		int[][] adjunta = new int[dim][dim];
 
-		int [][]temp = new int[dim][dim];
-	
-		for (int i = 0; i < dim; i++)
-		{
-			for (int j = 0; j < dim; j++)
-			{
-				// Sacamos los cofactores de A[i][j]
-				cofactor(A, temp, i, j, dim);
-	
-				// Intercambiamos las filas y columnas para conseguir la
-				// transpuesta de la matriz de cofactores = la matriz adjunta
-				//adj[j][i] = (sign)*determinante(temp);
-
-				transpuesta(temp);
+		// Llenamos la matriz adjunta, según su definición.
+		for (int x = 0; x < dim; x++)
+			for (int y = 0; y < dim; y++) {
+				int primerTermino = (int) Math.pow(-1, x+y);
+				int segundoTermino = determinante(matriz_ij(a, x, y));// % 27;
+				adjunta[x][y] = (primerTermino*segundoTermino);// % 27;
 			}
-		}
-		return temp;
+
+		// Devolvemos la matriz adjunta.
+		return adjunta;
 	}
 
-	// Función de los cofactores de A[p][q] en temp[][]. n es la
-	// dimension de A[][]
-	static int[][] cofactor(int A[][], int temp[][], int p, int q, int n) {
-		int i = 0, j = 0;
-	
-		// Bucle para cada elemento de la matriz
-		for (int row = 0; row < n; row++) {
-			for (int col = 0; col < n; col++) {
-				// Copiamos en una matriz temporal solo aquellos elementos
-				// que no están en sus filas y columnas
-				if (row != p && col != q) {
-					temp[i][j++] = A[row][col];
-	
-					// La fila se llena así que aumentamos el índice de la fila y 
-					// resetamos el índice de las columnas
-					if (j == n - 1)	{
-						j = 0;
-						i++;
-					}
-				}
+	/**
+	 * Matriz resultante de eliminar el renglón 
+	 * dado y la columna dada de la matriz dada.
+	 * @param a Matriz de la cual se desea eliminar renglón y columna.
+	 * @param i Renglón que se desea eliminar de la matriz.
+	 * @param j Columna que se desea eliminar de la matriz.
+	 * @return Matriz que resulta de eliminar la fila i
+	 * y la columna j de la matriz dada.
+	 */
+	public static int[][] matriz_ij(int[][] a, int i, int j) {
+
+		// La matriz resultante tendrá un renglón menos y
+		// una columna menos que la original.
+		int[][] a_ij = new int[a.length-1][a[0].length-1];
+
+		// Recorremos la matriz resultante,
+		// llenándola según los valores de i y de j.
+		for (int x = 0; x < a_ij.length; x++)
+			for (int y = 0; y < a_ij.length; y++) {
+				int xPrima = x >= i ? x+1 : x;
+				int yPrima = y >= j ? y+1 : y;
+				a_ij[x][y] = a[xPrima][yPrima];
 			}
-		}
-		return temp;
+
+		// Devolvemos la matriz resultante.
+		return a_ij;
+
 	}
 
 }
