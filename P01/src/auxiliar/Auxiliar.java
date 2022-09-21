@@ -158,14 +158,14 @@ public final class Auxiliar extends Object {
 		if (a.length == 2) {
 			assert a[0].length == 2;
 
-			adjuntaAux(a, 2);
+			return adjuntaAux(a, 2);
 		}
 
 		// Si la matriz es de 3x3...
 		if (a.length == 3) {
 			assert a[0].length == 3;
 
-			adjuntaAux(a, 3);
+			return adjuntaAux(a, 3);
 		}
 
 		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
