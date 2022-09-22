@@ -106,33 +106,6 @@ public final class Auxiliar extends Object {
 	}
 
 	/**
-	 * Calcula y devuelve la matriz inversa de la matriz dada.
-	 * @param a Matriz cuya inversa desea calcularse.
-	 * @return Inversa de la matriz dada.
-	 * @throws Exception Error si la matriz no tiene inversa.
-	 */
-	public static int[][] inversa(int[][] a) throws Exception {
-
-		// Primero, calculamos la inversa de la matriz.
-		int det = determinante(a);// % 27;
-
-		// Si el determinante es cero, esta matriz no tiene inversa.
-		if (det == 0)
-			throw new Exception("Esta matriz no tiene inversa.");
-
-		// La inversa de una matriz es la transpuesta de su adjunta...
-		int[][] inversa = transpuesta(adjunta(a));
-
-		// entre su determinante.
-		for (int x = 0; x < inversa.length; x++)
-			for (int y = 0; y < inversa[0].length; y++)
-				inversa[x][y] /= det; // AQUÍ SE HACE CERO SI EL DETERMINANTE ES MÁS GRANDE QUE EL NUMERADOR.
-
-		// Devolvemos la matriz inversa.
-		return inversa;
-	}
-
-	/**
 	 * Calcula y devuelve la matriz transpuesta de la matriz dada.
 	 * @param a Matriz cuya transpuesta desea calcularse.
 	 * @return Transpuesta de la matriz dada.
@@ -152,51 +125,6 @@ public final class Auxiliar extends Object {
 
 		// La devolvemos.
 	    return transpuesta;
-	}
-
-
-	/**
-	 * Calcula y devuelve la matriz adjunta de la matriz dada.
-	 * @param a Matriz cuya matriz adjunta desea calcularse.
-	 * @return Matriz adjunta de la matriz dada.
-	 */
-	private static int[][] adjunta(int[][] a) throws Exception {
-
-		// Si la matriz es de 2x2...
-		if (a.length == 2) {
-			assert a[0].length == 2;
-
-			return adjuntaAux(a, 2);
-		}
-
-		// Si la matriz es de 3x3...
-		if (a.length == 3) {
-			assert a[0].length == 3;
-
-			return adjuntaAux(a, 3);
-		}
-
-		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
-		throw new Exception("Para el cálculo de la matriz adjunta, sólo se está trabajando con matrices de dimensiones 2 y 3.");
-
-	}
-
-	// Función auxiliar para calcular la matriz adjunta.
-	private static int[][] adjuntaAux(int[][] a, int dim) throws Exception {
-
-		// Creamos la matriz adjunta.
-		int[][] adjunta = new int[dim][dim];
-
-		// Llenamos la matriz adjunta, según su definición.
-		for (int x = 0; x < dim; x++)
-			for (int y = 0; y < dim; y++) {
-				int primerTermino = (int) Math.pow(-1, x+y);
-				int segundoTermino = determinante(matriz_ij(a, x, y));// % 27;
-				adjunta[x][y] = (primerTermino*segundoTermino);// % 27;
-			}
-
-		// Devolvemos la matriz adjunta.
-		return adjunta;
 	}
 
 	/**
