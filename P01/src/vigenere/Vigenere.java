@@ -1,7 +1,7 @@
-package vigenère;
+package vigenere;
 import auxiliar.*;
 
-public class Vigenère{
+public class Vigenere{
 	static String n = "\u00f1";
 	static String nm = n.toUpperCase();
 	// Tabla de Vigenere:

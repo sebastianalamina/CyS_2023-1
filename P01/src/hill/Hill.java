@@ -1,6 +1,6 @@
 package hill;
 import auxiliar.*;
-import vigenère.*;
+import vigenere.*;
 import java.util.Arrays;
 
 /**
@@ -33,7 +33,7 @@ public class Hill {
 		int[][] llaveM = new int[n][n];
 		for (int x = 0; x < n; x++)
 			for (int y = 0; y < n; y++)
-				llaveM[x][y] = Vigenère.LetterToNumber(""+llave.charAt(x*n+y));
+				llaveM[x][y] = Vigenere.LetterToNumber(""+llave.charAt(x*n+y));
 
 		// Error si la matriz de la llave no es invertible.
 		if (Auxiliar.determinante(llaveM) == 0)
@@ -53,7 +53,7 @@ public class Hill {
 		for (int i = 0; i < texto.length(); i++) {
 
 			// Vamos creando el N-grama.
-			nGrama[i%n][0] = Vigenère.LetterToNumber(""+texto.charAt(i));
+			nGrama[i%n][0] = Vigenere.LetterToNumber(""+texto.charAt(i));
 
 			// Si el N-grama ya se llenó...
 			if ((i+1)%n == 0) {
@@ -93,7 +93,7 @@ public class Hill {
 		int[][] llaveM = new int[n][n];
 		for (int x = 0; x < n; x++)
 			for (int y = 0; y < n; y++)
-				llaveM[x][y] = Vigenère.LetterToNumber(""+llave.charAt(x*n+y));
+				llaveM[x][y] = Vigenere.LetterToNumber(""+llave.charAt(x*n+y));
 
 		// Error si la matriz de la llave no es invertible.
 		if (Auxiliar.determinante(llaveM) == 0)
@@ -124,7 +124,7 @@ public class Hill {
 		for (int i = 0; i < texto.length(); i++) {
 
 			// Vamos creando el N-grama.
-			nGrama[i%n][0] = Vigenère.LetterToNumber(""+texto.charAt(i));
+			nGrama[i%n][0] = Vigenere.LetterToNumber(""+texto.charAt(i));
 
 			// Si el N-grama ya se llenó...
 			if ((i+1)%n == 0) {
