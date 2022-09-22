@@ -100,7 +100,7 @@ public class Hill {
 			throw new Exception("La matriz que genera la clave no es invertible.");
 		
 		// Si sí es invertible, calculamos la matriz inversa.
-		int[][] llaveMInversa = Auxiliar.inversa(llaveM);
+		int[][] llaveMInversa = Auxiliar.matrizInv(llaveM);
 		//System.out.print("LLAVE INVERSA: "+Arrays.deepToString(llaveMInversa));
 
 		// Le aplicamos módulo a la llave inversa.
