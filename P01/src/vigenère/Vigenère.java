@@ -1,4 +1,5 @@
 package vigenère;
+import auxiliar.*;
 
 public class Vigenère{
 	static String n = "\u00f1";
@@ -131,6 +132,7 @@ public class Vigenère{
     	String msg = "";
 
     	secret = secret.replaceAll("Ñ",nm);
+        secret = Auxiliar.normalizarTexto(secret);
 
     	key = key.toUpperCase(); // Lo mismo con la clave
         key = key.replaceAll("ñ","n"); 
