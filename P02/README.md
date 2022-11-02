@@ -12,4 +12,12 @@ Consultar el archivo `Especificación.pdf` para más información sobre el proye
 
 Mediante una terminal con acceso a un compilador de *Python 3*, ejecutar el archivo `Main.py` dentro de la carpeta `src`...
 
-`python3 Main.py`
+```sh
+python3 Main.py
+```
+
+Además, es necesario contar con la biblioteca `sympy`, que puede ser instalada con ayuda de `pip`...
+
+```sh
+pip install sympy
+```
