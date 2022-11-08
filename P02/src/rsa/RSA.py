@@ -48,7 +48,7 @@ class RSA(object):
 		# e*d ≡ 1 (mod phi). Es decir, "d" es el
 		# multiplicativo modular inverso de: e mod phi.
 		# Esto es equivalente a d ≡ e mod^-1 (phi).
-		# "d" será el exponente de la clave pública.
+		# "d" será el exponente de la clave privada.
 		d = pow(e, -1, phi)
 		if debug: print(f"d = {d}")
 
