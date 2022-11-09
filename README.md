@@ -2,5 +2,7 @@
 
 ## Notas :clipboard:
 
+- La carpeta `T01` contiene la primera tarea (Cifrados clásicos)[100/100].
+
 - La carpeta `P01` contiene el primer proyecto (Criptosistemas Vigenère y Hill).
 - La carpeta `P02` contiene el segundo proyecto (Criptosistema RSA y herramientas whois, nslookup, traceroute, nmap).
