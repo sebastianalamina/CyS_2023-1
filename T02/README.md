@@ -19,3 +19,10 @@ python3 RSA.py
 ```sh
 python3 ElGamal.py
 ```
+
+Además, es necesario contar con las bibliotecas `sympy` y `numpy`, que puede ser instalada con ayuda de `pip`...
+
+```sh
+pip install sympy
+pip install numpy
+```
