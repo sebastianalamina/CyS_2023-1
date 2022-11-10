@@ -1,4 +1,4 @@
-# Proyecto 2 - Criptosistema RSA :heavy_check_mark:
+# Proyecto 2 - RSA y herramientas :heavy_check_mark:
 
 Consultar el archivo `Especificación.pdf` para más información sobre el proyecto.
 
@@ -7,6 +7,11 @@ Consultar el archivo `Especificación.pdf` para más información sobre el proye
 - [sebastianalamina](https://github.com/sebastianalamina) (Sebastián Alamina Ramírez)
 - [Carlos-Desiderio](https://github.com/Carlos-Desiderio) (Carlos Alberto Desiderio Castillo)
 - [caams](https://github.com/caams) (Camila Alexandra Cruz Miranda)
+
+## Notas :clipboard:
+
+- La primera parte del proyecto (criptosistema *RSA*) se incluye dentro de la carpeta `src`, con las instrucciones de ejecución detalladas a continuación.
+- La segunda parte del proyecto (herramientas *whois*, *nslookup*, *traceroute*, *nmap*) se incluye en el archivo `Reporte.pdf`.
 
 ## Ejecución :gear:
 
