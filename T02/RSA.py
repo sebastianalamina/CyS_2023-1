@@ -19,7 +19,7 @@ def descifrado_RSA(n, p, q, mensaje_cifrado, debug=False):
 	assert isinstance(debug, bool)
 
 	# Imprimiendo en consola.
-	if debug: print(f"Descifrando un mensaje de longitud {len(mensaje_cifrado)} que fue cifrado mediante RSA con parámetros n={n}, p={p}, q={q}...")
+	if debug: print(f"\nDescifrando un mensaje de longitud {len(mensaje_cifrado)} que fue cifrado mediante RSA con parámetros n={n}, p={p}, q={q}...\n")
 
 	# Desciframos el mensaje en claro, considerando que
 	# la llave privada depende de cada llave pública.
@@ -38,11 +38,11 @@ def descifrado_RSA(n, p, q, mensaje_cifrado, debug=False):
 		# de la clave privada.
 		d = pow(e, -1, phi)
 
-		# Imprimimos la llave privada en consola.
-		if debug: print(f"Al mensaje cifrado {m} con llave pública ({n}, {e}) le corresponde la llave privada ({n}, {d}).")
-
 		# Desciframos el caracter en curso.
 		c = pow(m, d, n)
+
+		# Imprimimos en consola.
+		if debug: print(f"Al mensaje {m} cifrado con llave pública RSA ({n}, {e}) le corresponde la llave privada ({n}, {d}) y corresponde al caracter en claro {c}.")
 
 		# Pegamos el caracter descifrado al mensaje en claro.
 		mensaje_en_claro += chr(c)
@@ -79,4 +79,4 @@ if __name__ == '__main__':
 		(71, 1550905),
 	]
 	mensaje_en_claro = descifrado_RSA(n, p, q, mensaje_cifrado, debug=True)
-	print(f"El mensaje descifrado es:\n{mensaje_en_claro}")
+	print(f"\nEl mensaje descifrado es:\n{mensaje_en_claro}\n")
