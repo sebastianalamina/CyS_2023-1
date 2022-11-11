@@ -20,6 +20,10 @@ python3 RSA.py
 python3 ElGamal.py
 ```
 
+```sh
+python3 RhoPollard.py
+```
+
 Además, es necesario contar con las bibliotecas `sympy` y `numpy`, que puede ser instalada con ayuda de `pip`...
 
 ```sh
