@@ -285,7 +285,7 @@ if __name__ == '__main__':
 	# Criptografía y Seguridad (2023-1)
 	# Sebastián Alamina Ramírez
 	# Tarea 2 - Ejercicios 3a y 3b.
-	# 09/noviembre/2022
+	# 10/noviembre/2022
 	n = 4245221
 	p,q = criba_cuadratica(n, 7, debug=True)
 	print(f"\nDos factores no triviales para n={n} son {p} y {q}.")
@@ -293,7 +293,7 @@ if __name__ == '__main__':
 	# Criptografía y Seguridad (2023-1)
 	# Sebastián Alamina Ramírez
 	# Tarea 2 - Ejercicio 3c.
-	# 09/noviembre/2022
+	# 10/noviembre/2022
 	mensaje_cifrado = [
 		(7, 2787825),
 		(11, 2055284),

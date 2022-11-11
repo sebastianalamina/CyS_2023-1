@@ -240,7 +240,7 @@ if __name__ == '__main__':
 	# Criptografía y Seguridad (2023-1)
 	# Sebastián Alamina Ramírez
 	# Tarea 2 - Ejercicios 4a y 4b.
-	# 09/noviembre/2022
+	# 10/noviembre/2022
 	beta = 19 # Índice.
 	alpha = 17 # Base.
 	p = 2011 # Módulo.
@@ -308,7 +308,7 @@ if __name__ == '__main__':
 	# Criptografía y Seguridad (2023-1)
 	# Sebastián Alamina Ramírez
 	# Tarea 2 - Ejercicio 4c.
-	# 09/noviembre/2022
+	# 10/noviembre/2022
 	# NOTA: Si bien ya contamos con la llave privada (obtenida
 	# previamente), este paso descifra ElGamal mediante fuerza
 	# bruta (sólo por curiosidad sobre cómo lograrlo así).
