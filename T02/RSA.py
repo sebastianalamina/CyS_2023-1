@@ -314,4 +314,24 @@ if __name__ == '__main__':
 		(71, 1550905),
 	]
 	mensaje_en_claro = descifrado_RSA(n, p, q, mensaje_cifrado, debug=True)
-	print(f"\nEl mensaje descifrado es:\n{mensaje_en_claro}\n")
+	print(f"\nEl mensaje descifrado (del ejercicio 3c) es:\n{mensaje_en_claro}")
+
+	# Criptografía y Seguridad (2023-1)
+	# Tarea 2 - Ejercicio 2c.
+	# 10/noviembre/2022
+	n = 7784099
+	p,q = 2791,2789
+	mensaje_cifrado = [
+		(7, 6308199),
+		(11, 5536286),
+		(13, 159060),
+		(19, 6724396),
+		(23, 26176),
+		(29, 1117219),
+		(37, 6925326),
+		(43, 7550806),
+		(47, 1525454),
+		(49, 4142333),
+	]
+	mensaje_en_claro = descifrado_RSA(n, p, q, mensaje_cifrado, debug=True)
+	print(f"\nEl mensaje descifrado (del ejercicio 2c) es:\n{mensaje_en_claro}\n")
