@@ -28,6 +28,16 @@ def modulo_potencia(base, exp, mod):
  
 # Función que regresa el divisor primo para n 
 def rho_de_Pollard( n):
+    """
+    2) Mediante el algoritmo de Rho de Pollard para enteros descomponga n = 7784099
+
+    a) De la función semialeatoria empleada
+        f(x) := x² + c mod p  
+        c es un número aleatorio entre 1 ... p-1
+        p es un número primo
+
+    b) Número de iteración en el cual fue exitoso el algoritmo y factor encontrado.
+    """
 
     pasos = 0
 
@@ -56,6 +66,7 @@ def rho_de_Pollard( n):
 
     #print(str(x), " ", str(y))
  
+    # 2.b)
     while(x != y):
         pasos += 1
         y = (modulo_potencia(y, 2, n) + c + n)%n
