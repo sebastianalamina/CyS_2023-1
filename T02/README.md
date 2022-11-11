@@ -1,7 +1,5 @@
 # Tarea 2 - Cifrados de clave pública :heavy_check_mark:
 
-Consultar el archivo `Especificación.pdf` para más información sobre la tarea.
-
 ## Autores :busts_in_silhouette:
 
 - [sebastianalamina](https://github.com/sebastianalamina) (Sebastián Alamina Ramírez)
@@ -10,7 +8,7 @@ Consultar el archivo `Especificación.pdf` para más información sobre la tarea
 
 ## Notas :clipboard:
 
-- El archivo `CyS-T02.pdf` es la entrega final.
+- El archivo `CyS-T02.pdf` es la entrega final en formato PDF.
 
 ## Ejecución :gear:
 
