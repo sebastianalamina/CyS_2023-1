@@ -1,4 +1,5 @@
 package auxiliar;
+import java.util.Arrays;
 
 /**
  * Clase Auxiliar.
@@ -8,6 +9,7 @@ package auxiliar;
  * funcionamiento de la clase Math).
  */
 public final class Auxiliar extends Object {
+
 
 	/**
 	 * Constructor de la clase Auxiliar.
@@ -42,11 +44,12 @@ public final class Auxiliar extends Object {
 		// Espacios.
 		s = s.replaceAll("\\s","");
 
-		// Signos de puntuación.
-		s = s.replaceAll("\\W","");
-
 		// Minúsculas a mayúsculas.
 		s = s.toUpperCase();
+
+		// Signos de puntuación.
+		// s = s.replaceAll("\\W","");
+		// Esta función elimina a las Ñ's.
 
 		// Devolvemos el texto ya normalizado.
 		return s;
@@ -75,6 +78,12 @@ public final class Auxiliar extends Object {
 	 */
 	public static int determinante(int[][] a) throws Exception {
 
+		// Si la matriz es de 1x1...
+		if (a.length == 1) {
+			assert a[0].length == 1;
+			return a[0][0];
+		}
+
 		// Si la matriz es de 2x2...
 		if (a.length == 2) {
 			assert a[0].length == 2;
@@ -93,34 +102,7 @@ public final class Auxiliar extends Object {
 		}
 
 		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
-		throw new Exception("Sólo se está trabajando con matrices de dimensiones 2 y 3.");
-	}
-
-	/**
-	 * Calcula y devuelve la matriz inversa de la matriz dada.
-	 * @param a Matriz cuya inversa desea calcularse.
-	 * @return Inversa de la matriz dada.
-	 * @throws Exception Error si la matriz no tiene inversa.
-	 */
-	public static int[][] inversa(int[][] a) throws Exception {
-
-		// Primero, calculamos la inversa de la matriz.
-		int det = determinante(a);
-
-		// Si el determinante es cero, esta matriz no tiene inversa.
-		if (det == 0)
-			throw new Exception("Esta matriz no tiene inversa.");
-
-		// La inversa de una matriz es la transpuesta de su adjunta...
-		int[][] inversa = transpuesta(adjunta(a));
-
-		// entre su determinante.
-		for (int x = 0; x < inversa.length; x++)
-			for (int y = 0; y < inversa[0].length; y++)
-				inversa[x][y] /= det;
-
-		// Devolvemos la matriz inversa.
-		return inversa;
+		throw new Exception("Para el cálculo del determinante, sólo se está trabajando con matrices de dimensiones 1, 2 y 3.");
 	}
 
 	/**
@@ -145,31 +127,138 @@ public final class Auxiliar extends Object {
 	    return transpuesta;
 	}
 
-
 	/**
-	 * Calcula y devuelve la matriz adjunta de la matriz dada.
-	 * @param a Matriz cuya matriz adjunta desea calcularse.
-	 * @return Matriz adjunta de la matriz dada.
+	 * Matriz resultante de eliminar el renglón 
+	 * dado y la columna dada de la matriz dada.
+	 * @param a Matriz de la cual se desea eliminar renglón y columna.
+	 * @param i Renglón que se desea eliminar de la matriz.
+	 * @param j Columna que se desea eliminar de la matriz.
+	 * @return Matriz que resulta de eliminar la fila i
+	 * y la columna j de la matriz dada.
 	 */
-	private static int[][] adjunta(int[][] a) throws Exception {
+	public static int[][] matriz_ij(int[][] a, int i, int j) {
 
-		// Si la matriz es de 2x2...
-		if (a.length == 2) {
-			assert a[0].length == 2;
+		// La matriz resultante tendrá un renglón menos y
+		// una columna menos que la original.
+		int[][] a_ij = new int[a.length-1][a[0].length-1];
 
-			// uwu
-		}
+		// Recorremos la matriz resultante,
+		// llenándola según los valores de i y de j.
+		for (int x = 0; x < a_ij.length; x++)
+			for (int y = 0; y < a_ij.length; y++) {
+				int xPrima = x >= i ? x+1 : x;
+				int yPrima = y >= j ? y+1 : y;
+				a_ij[x][y] = a[xPrima][yPrima];
+			}
 
-		// Si la matriz es de 3x3...
-		if (a.length == 3) {
-			assert a[0].length == 3;
-
-			// uwu
-		}
-
-		// Si la matriz no es 2x2 ni 3x3, se lanza un error.
-		throw new Exception("Sólo se está trabajando con matrices de dimensiones 2 y 3.");
+		// Devolvemos la matriz resultante.
+		return a_ij;
 
 	}
+
+	/** Método para obtener el inverso multiplicativo
+    * @param n el número al que se le calculara el inverso multiplicativo en Z_27.
+    * @return el inverso multiplicativo de n.
+    */
+    public static int inverso(int n)throws Exception{  // únicos elementos que to tienen inverso son: 3 y 9, factores de 27. 
+        for (int i=1; i<27; i++) {  // recorremos multiplicando n a cada elemento de Z_27
+            int m = (n*i)%27;       // lo pasamos a modulo 27
+            // System.out.println(m);
+            if (m == 1) {       // si enconramos algún elemento que al multiplicarlo sea 1
+                return i;     // regresamos dicho elemento, pues es su inverso.
+            }
+        }
+        String nl = Integer.toString(n);   // si no encontramos inverso lanzamos la excepción.
+        throw new Exception("No existe inverso para "+ nl); // esto sirve para el determinante, si es cero, o su determinante no tiene inverso
+    } 
+
+
+    /** Método para obtener el inverso aditivo
+    * @param n el número al que se le calculara el inverso aditivo en Z_27.
+    * @return el inverso aditivo de n.
+    */
+    public static int inversoad(int n){  // calcula el inverso aditivo en Z_27 de n
+        return (27 - n)%27;
+    }
+
+    /**
+     * Calcula y devuelve la matriz inversa de la matriz dada.
+     * @param m Matriz cuya inversa desea calcularse.
+     * @return Inversa de la matriz dada.
+     * @throws Exception Error si la matriz no tiene inversa, o la matriz es de otra dimension.
+     */
+    public static int[][] matrizInv(int[][] m)throws Exception{
+        int da = determinante(m)%27;   // determinante
+            if (da<0) {
+                da = inversoad(-da);  // si el determinante resulta ser negativo, lo pasamos a su valor en Z27
+            }
+            da = inverso(da);  // inverso del determinante.
+            // System.out.println(da);
+
+        if (m.length == 2) {   // si la matriz es de 2x2, se aplica la formula del inverso del determinante por la adjunta.
+            for (int i=0; i<m.length; i++) {  // si hay entradas negativas, se pasan a Z27, para trabajar con ellas
+                for (int j=0; j<m[i].length; j++) {
+                    if (m[i][j] < 0) {  // se colocan los valores de la matriz a Z27
+                        m[i][j] = inversoad(-(m[i][j]%27)) ; 
+                    }
+                    m[i][j] = m[i][j]%27;
+                }
+            }
+            // print(m);
+            int[][] adjm = {{m[1][1], inversoad(m[1][0])},{inversoad(m[0][1]), m[0][0]}};  // adjunta de la matriz
+            // System.out.println(adjm.length);
+            adjm[0][0] = (adjm[0][0] * da) % 27;   // multiplicamos cada entrada por el inverdo del determinante mod 27
+            adjm[0][1] = (adjm[0][1] * da) % 27;
+            adjm[1][0] = (adjm[1][0] * da) % 27;
+            adjm[1][1] = (adjm[1][1] * da) % 27; 
+            return transpuesta(adjm); /// regresamos la matriz traspuesta que es la inversa
+        }
+        if (m.length == 3) {
+            // calculamos la adjunta traspuesta de la matriz
+
+            int[][] adt = transpuesta(adjTras(m));
+            // print(adt);
+            for (int i=0; i<adt.length; i++) {  // si hay entradas negativas, se pasan a Z27, para trabajar con ellas
+                for (int j=0; j<adt[i].length; j++) {
+                    if (adt[i][j] < 0) {  // se colocan los valores de la matriz a Z27
+                        // System.out.println(-adt[i][j]);
+                        // System.out.println(inversoad(-m[i][j]));
+                        adt[i][j] = inversoad(-(adt[i][j])) ; 
+                        adt[i][j] = (adt[i][j]*da) %27; //  multiplicamos cada entrada por el inverso del determinante.
+
+                    }else{
+                        adt[i][j] = adt[i][j];
+                        adt[i][j] = (adt[i][j]*da) %27;
+                    }
+                    
+                }
+            }
+            return adt;
+        }else{
+            throw new Exception("Solo se trabaja con matrices de 2x2 o 3x3.");
+        }
+    }
+
+     /**
+     * Calcula y devuelve la matriz adjunta traspuesta de la matriz dada.
+     * @param m Matriz cuya adjunta desea calcularse.
+     * @return Adjunta de la matriz dada.
+     * @throws Exception Si la matriz no es de dimension 3.
+     */
+    public static int[][] adjTras(int[][] m) throws Exception {
+        if (m.length == 3) {
+            int[][] ad = new int[3][3];
+            int u = 1;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    ad[i][j] = (u*determinante(matriz_ij(m,i,j)))%27;
+                    u = -1*u;
+                }
+            }
+            return ad;
+        }
+        throw new Exception("Para el cálculo de la matriz adjunta, sólo se está trabajando con matrices de dimensiones 2 y 3.");
+    }
+
 
 }

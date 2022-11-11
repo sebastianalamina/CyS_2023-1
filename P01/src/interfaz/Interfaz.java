@@ -1,6 +1,6 @@
 package interfaz;
 import java.util.Scanner;
-import vigenère.*;
+import vigenere.*;
 import hill.*;
 
 /**
@@ -43,9 +43,9 @@ public class Interfaz extends Object {
 		System.out.println("--------- Cripsosistemas Vigenère y Hill ---------");
 		System.out.println("--------------------------------------------------");
 		System.out.println("------------------ Integrantes -------------------");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
+		System.out.println("Sebastián Alamina Ramírez");
+		System.out.println("Carlos Alberto Desiderio Castillo");
+		System.out.println("Camila Alexandra Cruz Miranda");
 		System.out.println("--------------------------------------------------");
 		System.out.println("1) Ejecutar Vigenère.");
 		System.out.println("2) Ejecutar Hill.");
@@ -56,7 +56,7 @@ public class Interfaz extends Object {
 		String x = getOpcion("Escoge una opción:");
 		if ( !x.equals("3") ) {
 			if ( x.equals("1") )
-				vigenère();
+				vigenere();
 			else if ( x.equals("2") )
 				hill();
 			else if (x != "3") {
@@ -89,7 +89,7 @@ public class Interfaz extends Object {
 	/**
 	 * Ejecución de Vigenère.
 	 */
-	private void vigenère() {
+	private void vigenere() {
 
 		// Imprimimos para saber si se desea encriptar o desencriptar.
 		System.out.println("-------------------- VIGENÈRE --------------------");
@@ -101,7 +101,7 @@ public class Interfaz extends Object {
 		String x = getOpcion("Escoge una opción:");
 		if ( !(x.equals("1")||x.equals("2")) ) {
 			getOpcion("Introduce una opción válida.");
-			vigenère();
+			vigenere();
 			return;
 		}
 
@@ -110,9 +110,9 @@ public class Interfaz extends Object {
 
 		// Imprimimos el resultado.
 		if (x.equals("1"))
-			System.out.println(Vigenère.encripta(texto, clave));
+			System.out.println(Vigenere.encripta(texto, clave));
 		else if (x.equals("2"))
-			System.out.println(Vigenère.decifra(texto, clave));
+			System.out.println(Vigenere.decifra(texto, clave));
 
 		// Simulamos una interacción antes de continuar.
 		getOpcion("Presiona 'Enter' para continuar.");

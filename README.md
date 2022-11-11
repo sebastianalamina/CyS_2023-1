@@ -2,12 +2,8 @@
 
 ## Notas :clipboard:
 
+- La carpeta `T01` contiene la primera tarea (Cifrados clásicos).
+- La carpeta `T02` contiene la segunda tarea (Cifrados de clave pública).
+
 - La carpeta `P01` contiene el primer proyecto (Criptosistemas Vigenère y Hill).
-
-## Autores :busts_in_silhouette:
-
-- [sebastianalamina](https://github.com/sebastianalamina) (Sebastián Alamina Ramírez)
-
-- [caams](https://github.com/caams) (Camila Alexandra Cruz Miranda)
-
-- [usuario_de_git](https://github.com/usuario_de_git) (nombre completo)
+- La carpeta `P02` contiene el segundo proyecto (Criptosistema RSA y herramientas whois, nslookup, traceroute, nmap).
