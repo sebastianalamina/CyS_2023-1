@@ -8,6 +8,10 @@ Consultar el archivo `Especificación.pdf` para más información sobre la tarea
 - [Carlos-Desiderio](https://github.com/Carlos-Desiderio) (Carlos Alberto Desiderio Castillo)
 - [caams](https://github.com/caams) (Camila Alexandra Cruz Miranda)
 
+## Notas :clipboard:
+
+- El archivo `CyS-T02.pdf` es la entrega final.
+
 ## Ejecución :gear:
 
 Mediante una terminal con acceso a un compilador de *Python 3*, ejecutar los archivos deseados...
