@@ -1,4 +1,5 @@
 # Tarea 2 de Criptografía y Seguridad 2023-1
+# Camila Alexandra Cruz Miranda
 # Ejercicio 2
 # Algoritmo rho de Pollard para encontrar un factor primo
 import random
