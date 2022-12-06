@@ -157,7 +157,6 @@ class CurvaEliptica(object):
 
 		# Si "z" no es RC mod p, entonces se toma el otro valor válido para "z".
 		if (sympy.legendre_symbol(z, self.p) != 1):
-			# print(f"Cambiando z={z} a z={self.p-z} para P={P}.") # DEBUG: Borrar esto.
 			z = self.p - z
 			assert sympy.legendre_symbol(z, self.p) == 1
 
@@ -184,7 +183,6 @@ class CurvaEliptica(object):
 		assert punto_descomprimido in self
 
 		# Devolvemos el punto descomprimido.
-		# print(f"Para {P}, z={z} y y={y}.") # DEBUG: Borrar esto.
 		return punto_descomprimido
 
 	def __contains__(self, obj):
