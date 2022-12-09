@@ -13,6 +13,7 @@ Consultar el archivo `docs/Especificación.pdf` para más detalles sobre el proy
 - La primera parte del proyecto (criptosistema *ECIES*) se incluye dentro de la carpeta `src`, con las instrucciones de ejecución detalladas a continuación.
 - La segunda parte del proyecto (técnicas *XXS* y *SQLi*) se incluye en el archivo `docs/Reporte.pdf`.
 - La carpeta `docs/` contiene documentos relevantes al proyecto y al programa.
+- La entrega final (100/100) consistió en un comprimido cuyo contenido son los archivos y las carpetas de este subdirectorio.
 
 ## Ejecución :gear:
 

@@ -5,10 +5,12 @@ Consultar el archivo `Especificación.pdf` para más información sobre el proye
 ## Autores :busts_in_silhouette:
 
 - [sebastianalamina](https://github.com/sebastianalamina) (Sebastián Alamina Ramírez)
-
 - [Carlos-Desiderio](https://github.com/Carlos-Desiderio) (Carlos Alberto Desiderio Castillo)
-
 - [caams](https://github.com/caams) (Camila Alexandra Cruz Miranda)
+
+## Notas :clipboard:
+
+- La entrega final (90/100 - entrega tardía) consistió en un comprimido cuyo contenido son los archivos y la(s) carpeta(s) de este subdirectorio.
 
 ## Ejecución :gear:
 

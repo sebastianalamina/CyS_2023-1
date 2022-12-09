@@ -10,4 +10,4 @@ Consultar el archivo `Especificación.pdf` para más información sobre la tarea
 
 ## Notas :clipboard:
 
-- El archivo `CyS-T03.pdf` es la entrega final (X/100).
+- El archivo `CyS-T03.pdf` es la entrega final (100/100).

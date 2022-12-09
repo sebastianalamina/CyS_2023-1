@@ -12,6 +12,7 @@ Consultar el archivo `Especificación.pdf` para más información sobre el proye
 
 - La primera parte del proyecto (criptosistema *RSA*) se incluye dentro de la carpeta `src`, con las instrucciones de ejecución detalladas a continuación.
 - La segunda parte del proyecto (herramientas *whois*, *nslookup*, *traceroute*, *nmap*) se incluye en el archivo `Reporte.pdf`.
+- La entrega final (100/100) consistió en un comprimido cuyo contenido son los archivos y la(s) carpeta(s) de este subdirectorio.
 
 ## Ejecución :gear:
 
